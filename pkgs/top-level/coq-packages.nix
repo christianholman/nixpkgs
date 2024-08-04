@@ -68,6 +68,7 @@ let
       graph-theory = callPackage ../development/coq-modules/graph-theory {};
       heq = callPackage ../development/coq-modules/heq {};
       hierarchy-builder = callPackage ../development/coq-modules/hierarchy-builder {};
+      high-school-geometry = callPackage ../development/coq-modules/high-school-geometry {};
       HoTT = callPackage ../development/coq-modules/HoTT {};
       hydra-battles = callPackage ../development/coq-modules/hydra-battles {};
       interval = callPackage ../development/coq-modules/interval {};
@@ -219,6 +220,6 @@ in rec {
   coqPackages_8_19 = mkCoqPackages coq_8_19;
   coqPackages_8_20 = mkCoqPackages coq_8_20;
 
-  coqPackages = coqPackages_8_19;
+  coqPackages = recurseIntoAttrs coqPackages_8_19;
   coq = coqPackages.coq;
 }
